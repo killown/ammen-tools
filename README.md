@@ -60,6 +60,8 @@ Edit or create your config file:
 - II 14-06-25 15:03:18.307 - [src/bench.cpp:99] Running at 830 fps
 - II 14-06-25 15:03:19.308 - [src/bench.cpp:99] Running at 834 fps
 - II 14-06-25 15:03:20.308 - [src/bench.cpp:99] Running at 833 fps
+  
+- You can connect using `socket.connect(os.getenv("WAYFIRE_SOCKET"))` and test some plugins FPS with IPC actions.
 
 ### inspect internal structures with `ammen99-debugging`
 
