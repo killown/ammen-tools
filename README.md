@@ -1,4 +1,4 @@
-Ammen Debug Tools: Wayfire Benchmarking & Scene Graph Inspection
+Wayfire Benchmarking & Scene Graph Inspection
 ================================================================
 
 This updated and expanded tutorial will guide you through setting up and using the `ammen99-bench` and `ammen99-debugging` plugins for benchmarking, scene graph inspection, and debugging in Wayfire — a powerful Wayland compositor.
