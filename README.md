@@ -61,7 +61,7 @@ Edit or create your config file:
 - II 14-06-25 15:03:19.308 - [src/bench.cpp:99] Running at 834 fps
 - II 14-06-25 15:03:20.308 - [src/bench.cpp:99] Running at 833 fps
 
-### New Plugin: `ammen99-debugging`
+### inspect internal structures (debug): `ammen99-debugging`
 
 *   Adds utility functions like `wdbg.py` to inspect internal structures.
 *   Enables real-time access to the scene graph, useful for debugging layout and rendering issues.
