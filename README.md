@@ -18,8 +18,14 @@ This updated and expanded tutorial will guide you through setting up and using t
 
 > This installs both `ammen99-bench` and `ammen99-debugging` plugins.
 
-📄 Step 3: Configure Wayfire (`ammen.ini`)
-------------------------------------------
+📄 Step 3: Configure Wayfire (`ammen.ini`) and Create `ammen.py` Stress Script
+------------------------------------
+save the following to /path/to/ammen.py
+    import subprocess
+    
+    # Start multiple instances of weston-simple-egl to stress the GPU
+    for i in range(50):
+        subprocess.Popen(["/usr/bin/weston-simple-egl", "-b", "-f"])
 
 Edit or create your config file:
 
@@ -30,7 +36,7 @@ Edit or create your config file:
     plugins = ammen99-bench ammen99-debugging autostart ipc ipc-rules expo stipc scale
     
     [autostart]
-    #ammen = python /path/to/ammen.py
+    ammen = python /path/to/ammen.py
     
     [ammen99-bench]
     average_frames = 1.000000
@@ -38,7 +44,7 @@ Edit or create your config file:
     stdout = true
     immediate_draw = true
 
-⚙️ Step 6: Launch Wayfire with Environment Variables
+⚙️ Step 4: Launch Wayfire with Environment Variables
 ----------------------------------------------------
 
     WLR_RENDERER=vulkan \
@@ -49,29 +55,16 @@ Edit or create your config file:
 📊 Expected Output During Benchmarking
 --------------------------------------
 
-II 14-06-25 15:03:16.306 - [src/bench.cpp:99] Running at 828 fps
-II 14-06-25 15:03:17.307 - [src/bench.cpp:99] Running at 830 fps
-II 14-06-25 15:03:18.307 - [src/bench.cpp:99] Running at 830 fps
-II 14-06-25 15:03:19.308 - [src/bench.cpp:99] Running at 834 fps
-II 14-06-25 15:03:20.308 - [src/bench.cpp:99] Running at 833 fps
+- II 14-06-25 15:03:16.306 - [src/bench.cpp:99] Running at 828 fps
+- II 14-06-25 15:03:17.307 - [src/bench.cpp:99] Running at 830 fps
+- II 14-06-25 15:03:18.307 - [src/bench.cpp:99] Running at 830 fps
+- II 14-06-25 15:03:19.308 - [src/bench.cpp:99] Running at 834 fps
+- II 14-06-25 15:03:20.308 - [src/bench.cpp:99] Running at 833 fps
 
 ### New Plugin: `ammen99-debugging`
 
 *   Adds utility functions like `wdbg.py` to inspect internal structures.
 *   Enables real-time access to the scene graph, useful for debugging layout and rendering issues.
-
-🐍 Step 4: Create `ammen.py` Stress Script
-------------------------------------------
-
-    import subprocess
-    
-    # Start multiple instances of weston-simple-egl to stress the GPU
-    for i in range(50):
-        subprocess.Popen(["/usr/bin/weston-simple-egl", "-b", "-f"])
-
-Save it as `/home/neo/ammen.py`, and make it executable:
-
-    chmod +x /home/neo/ammen.py
 
 🧪 Step 5: Use `wdbg.py` to Inspect Scene Graph
 -----------------------------------------------
